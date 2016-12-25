@@ -30,7 +30,7 @@ $(function () {
 
         addTab({
             "title": "kuan",
-            "href": "tables.html",
+            "href": "/tables",
             "id": "abcdef"
         })
         return false;
