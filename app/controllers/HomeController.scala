@@ -8,7 +8,7 @@ import play.api.mvc._
   * This controller creates an `Action` to handle HTTP requests to the
   * application's home page.
   */
-case class SideBar(title: String, href: String = "javascript:;", children: List[SideBar] = null)
+case class SideBar(id: String = "kuan123", title: String, href: String = "javascript:;", children: List[SideBar] = List())
 
 @Singleton
 class HomeController @Inject() extends Controller {

@@ -10,12 +10,11 @@
             <b class="arrow"></b>
             <ul class="submenu">
             @for(subBar <- bar.children) {
-                <li class="">
+                <li class="" title="@subBar.title" id="sidebar_@subBar.id" href="@subBar.href">
                     <a href="@subBar.href">
                         <i class="menu-icon fa fa-caret-right"></i>
                         @subBar.title
                     </a>
-
                     <b class="arrow"></b>
                 </li>
             }

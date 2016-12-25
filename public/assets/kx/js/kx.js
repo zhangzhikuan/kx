@@ -31,13 +31,21 @@ $(function () {
 
     //新增tab
     $(".submenu li").click(function (e) {
-
-        addTab({
-            "title": "kuan",
-            "href": "/tables",
-            "id": "abcdef"
-        })
-        return false;
+        try {
+            var current = $(e.currentTarget)
+            var title = current.attr('title')
+            var href = current.attr('href')
+            var id = current.attr('id')
+            addTab({
+                "title": title,
+                "href": href,
+                "id": id
+            })
+            return false;
+        } catch (e) {
+            alert(e)
+            return false;
+        }
     })
 
     //添加关闭按钮
@@ -45,7 +53,6 @@ $(function () {
         var __i = $(e.target)
         var _a = __i.parent()
         var li = _a.parent()
-
 
         //判断当前的tab是不是激活tab，如果是激活tab，需要选择某一个tab作为激活tab，默认为前一个
         if (li.hasClass('active')) {
