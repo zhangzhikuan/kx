@@ -25,9 +25,9 @@ $(function () {
         //将新的选项卡内容展示
         $(tab.children('a').attr('href')).addClass('active')
     }
-
     //新增tab
     $(".submenu li").click(function (e) {
+
         addTab({
             "title": "kuan",
             "href": "tables.html",
