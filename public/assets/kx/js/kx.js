@@ -3,16 +3,19 @@ $(function () {
     function addTab(options) {
         var title = options.title;
         var href = options.href;
-        var id = "iframe_" + options.id;
+        var iframe_id = "iframe_" + options.id;
+        var title_id = "title_tab_" + options.id;
 
-        if ($('#' + id).length == 0) {
+        var existTab = $('#' + title_id)
 
-            $('#tab-contents').append($('<div id="' + id + '" class="tab-pane auto-height"><iframe width="100%" height="100%" src="' + href + '" frameborder="0" seamless></iframe></div>'))
-            var tab_titile = $('<li class=""><a data-toggle="tab" href="#' + id + '">' + title + '<i class="ace-icon fa fa-thumbs-o-up"></i><i class="pink ace-icon fa fa-times-circle tab-close"/></a></li>');
+        if (existTab.length == 0) {
+            $('#tab-contents').append($('<div id="' + iframe_id + '" class="tab-pane auto-height"><iframe width="100%" height="100%" src="' + href + '" frameborder="0" seamless></iframe></div>'))
+            var tab_titile = $('<li class="" id="' + title_id + '"><a data-toggle="tab" href="#' + iframe_id + '">' + title + '<i class="ace-icon fa fa-thumbs-o-up"></i><i class="pink ace-icon fa fa-times-circle tab-close"/></a></li>');
             $('#tab-titles').append(tab_titile)
-
             //激活新的tab
             activeTab(tab_titile)
+        } else {
+            activeTab(existTab)
         }
 
     }
@@ -25,6 +28,7 @@ $(function () {
         //将新的选项卡内容展示
         $(tab.children('a').attr('href')).addClass('active')
     }
+
     //新增tab
     $(".submenu li").click(function (e) {
 

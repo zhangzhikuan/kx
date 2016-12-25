@@ -1,3 +1,4 @@
+@(sideBars: List[SideBar])
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -124,7 +125,7 @@
                 </div>
                     <!-- /.sidebar-shortcuts -->
 
-                @sidebar()
+                @sidebar(sideBars)
 
                     <!-- 伸缩siderbar -->
                 <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
