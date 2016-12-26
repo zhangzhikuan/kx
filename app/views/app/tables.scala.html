@@ -164,59 +164,8 @@
         <script src='@routes.Assets.versioned("assets/js/buttons.colVis.min.js")'></script>
         <script src='@routes.Assets.versioned("assets/js/dataTables.select.min.js")'></script>
 
-            <!-- inline scripts related to this page -->
-        <script type="text/javascript">
-            jQuery(function ($) {
-                var myTable =
-                        $('#dynamic-table')
-                                .DataTable({
+        <script src='@routes.Assets.versioned("assets/kx/js/kx-table.js")'></script>
 
-                                    columns: [
-                                        {
-                                            data: 'id',
-                                           "bSortable": false
-                                        },
-                                        {data: 'domainName'},
-                                        {data: 'price'},
-                                        {data: 'clicks'},
-                                        {data: 'updateTime'},
-                                        {data: 'status'}
-                                    ],
-                                    "serverSide": true,
-                                    columnDefs: [
-                                        {
-                                            "targets": [0], //从第0列开始
-                                            "visible": true,
-                                            "class": "center",
-                                            "data": "id",
-                                            "render": function (data, type, full, meta) {
-                                                return '<label class="pos-rel"><input type="checkbox" class="ace"/><span class="lbl"></span></label>'
-
-                                            }
-
-                                        },
-                                        {
-                                            "targets": [6], //从第0列开始
-                                            "visible": true,
-                                            "class": "center",
-                                            "data": "domainName",
-                                            "render": function (data, type, full, meta) {
-                                                return 'kuan_'+data
-
-                                            }
-
-                                        }
-                                    ],
-
-                                    "aaSorting": [],
-
-                                    ajax: {
-                                        url: 'table/data',
-                                        dataSrc: 'data'
-                                    }
-                                });
-            })
-        </script>
 
     </body>
 </html>
