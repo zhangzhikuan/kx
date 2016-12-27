@@ -5,7 +5,7 @@ jQuery(function ($) {
                 "serverSide": true,
                 //dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
 
-
+                "bFilter": false, //过滤功能
                 columnDefs: [
                     {
                         "targets": 0, //从第0列开始
@@ -22,6 +22,7 @@ jQuery(function ($) {
                     {
                         "targets": 1,
                         "class": "center",
+                        "bSearchable": true,
                         "data": "domainName"
                     },
                     {
@@ -49,6 +50,7 @@ jQuery(function ($) {
                         "visible": true,
                         "class": "center",
                         "data": "domainName",
+                        "bSortable": false,
                         "render": function (data, type, full, meta) {
                             return 'kuan_' + data
 

@@ -22,7 +22,7 @@ class TableController @Inject() extends Controller {
 
   def tableData(draw: Long) = Action {
     val newDraw = draw + 1L
-    val domainList = (1 to 10).map(x => DomainInfo(x.toString, "2", "3", "4", "5", "6")).toList
+    val domainList = (1 to 10).map(x => DomainInfo(x.toString, "2"+x, "3", "4", "5", "6")).toList
     val obj = JSONObject(Map("draw" -> newDraw, "recordsTotal" -> 111, "recordsFiltered" -> 111, "data" -> JSONArray(domainList)))
     Ok(obj.toString()).as("application/json")
   }
