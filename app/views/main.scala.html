@@ -1,4 +1,4 @@
-@(sideBars: List[SideBar])
+@(sideBars: List[SideBar])(implicit request: play.api.mvc.RequestHeader)
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,10 +8,10 @@
         <meta name="description" content=""/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
         @css()
-        <!-- inline scripts related to this page -->
-        <link rel="stylesheet" href='@routes.Assets.versioned("assets/kx/css/kx.css")'/>
+                <!-- inline scripts related to this page -->
+            <link rel="stylesheet" href='@routes.Assets.versioned("assets/kx/css/kx.css")'/>
 
-    </head>
+        </head>
 
     <body class="no-skin">
         <div id="navbar" class="navbar navbar-default ace-save-state">
@@ -41,7 +41,8 @@
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                                 <img class="nav-user-photo" src='@routes.Assets.versioned("assets/images/avatars/user.jpg")' alt="Jason's Photo"/>
                                 <span class="user-info">
-                                    <small>Welcome,</small>kx
+                                    <small>Welcome,</small>
+                                    @request.session.get("current.name")
                                 </span>
 
                                 <i class="ace-icon fa fa-caret-down"></i>
@@ -171,7 +172,7 @@
                 <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
             </a>
         </div>
-        <!-- /.main-container -->
+            <!-- /.main-container -->
         @js()
         <script src='@routes.Assets.versioned("assets/kx/js/kx.js")'></script>
     </body>
